@@ -1,4 +1,4 @@
-source(here("Scripts", "Compute_R_Peaks"))
+source(here("Scripts", "Compute_R_Peaks.R"))
 
 # Compute the RR intervals
 rr_intervals <- diff(r_peaks$Time)

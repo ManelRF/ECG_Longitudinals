@@ -7,7 +7,7 @@ sf <- 8000             # Sampling Frequency
 samples <- 240000      # Number of Samples
 
 # Open ECGPCG0003.dat
-file_connection <- file(paste0(file_name, ".dat"), "rb")
+file_connection <- file(here("Data",paste0(file_name, ".dat")), "rb")
 
 # Read the binary data as 16-bit integers
 data_16int <- readBin(file_connection, what = "integer", size = 2,
@@ -20,7 +20,7 @@ close(file_connection)
 data_matrix <- matrix(data_16int, ncol = signals, byrow = TRUE)
 
 # Time values
-time <- seq(0, (samples - 1)) / fs
+time <- seq(0, (samples - 1)) / sf
 
 # Get Signal
 ecg_signal <- data_matrix[,1]
